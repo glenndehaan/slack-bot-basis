@@ -76,7 +76,7 @@ bot.on('message', (data) => {
  *
  * @see https://api.slack.com/events/goodbye
  */
-bot.on('close', function () {
+bot.on('close', () => {
     /**
      * Exit with a failure since slack isn't there anymore
      *
@@ -89,7 +89,7 @@ bot.on('close', function () {
 /**
  * Something gone wrong with the slack connection
  */
-bot.on('error', function () {
+bot.on('error', () => {
     /**
      * Exit with a failure since we don't know what happened here
      *
