@@ -70,3 +70,31 @@ bot.on('message', (data) => {
         }
     }
 });
+
+/**
+ * Slack hangup the connection
+ *
+ * @see https://api.slack.com/events/goodbye
+ */
+bot.on('close', function () {
+    /**
+     * Exit with a failure since slack isn't there anymore
+     *
+     * @see systemctl restart
+     */
+
+    process.exit(1);
+});
+
+/**
+ * Something gone wrong with the slack connection
+ */
+bot.on('error', function () {
+    /**
+     * Exit with a failure since we don't know what happened here
+     *
+     * @see systemctl restart
+     */
+
+    process.exit(1);
+});
